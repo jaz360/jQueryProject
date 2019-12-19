@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>STAR WARS FINAL PROJECT</title>
+    <meta charset="utf-8" />
+	<!--
+	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	-->
+	
+	<link rel="stylesheet" href="themes/web.css" />
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" /> 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script> 
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js"> </script>
+	<script type="text/javascript"  src="http://maps.google.com/maps/api/js?v=3&sensor=false&language=en" > </script>
+
+</head>
+
+	<body style="zoom: 80%">
+		<div data-role="page" id="p1" data-theme="b">
+				<div data-role="header">
+					<center>
+						<div data-role="navbar">
+							<a href="#p1" data-transition="pop" class="ui-btn ui-shadow-icon ui-icon-home ui-btn-icon-left ui-corner-all">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="#p2" data-transition="pop" class="ui-btn ui-shadow-icon ui-icon-info ui-btn-icon-left  ui-corner-all">Data Info</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="#map" data-transition="pop" class="ui-btn ui-shadow-icon ui-icon-location ui-btn-icon-left  ui-corner-all">Google Maps</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="#chart" data-transition="pop" class="fa fa-bar-chart" class="ui-btn ui-corner-all" text-align="center">Chart</a>
+						</div>
+					</center>
+					<h1>MEET THE CHARACTERS OF STARWARS</h1>
+				</div>
+				
+				
+				
+				
+				
+				
+				
+		</div>
+		
+		
+		<div data-role="page" id="p2" data-theme="b">
+				<div data-role="header">
+					<h1>MEET THE CHARACTERS OF STARWARS</h1>
+					<a href="#p1" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left">About</a>
+				</div>
+				<div data-role="main" class="ui-content">
+						<form>
+						  <input id="filterTable-input" data-type="search" placeholder="Search For Planet Info...">
+						</form>
+						<!-- <table data-role="table" data-mode="columntoggle" class="ui-responsive" id="myTable" data-column-btn-text="Hide/Show Columns" data-filter="true" data-input="#filterTable-input">
+						 -->
+						<table data-role="table" data-mode="columntoggle" class="ui-responsive" data-column-btn-text="Click me to hide or shown columns!" id="myTable" data-filter="true" data-input="#filterTable-input">
+						          <thead>
+									<tr>
+									  <th data-priority="1">Name</th>
+									  <th data-priority="2">Height</th>
+									  <th data-priority="3">Mass</th>
+									  <th data-priority="4">Hair Color</th>
+									  <th data-priority="5">Skin Color</th>
+									  <th data-priority="6">Eye Color</th>
+									  <th data-priority="16">Birth Year</th>
+									  <th data-priority="7">Gender</th>
+									  <th data-priority="8">Home World</th>
+									  <th data-priority="9">Films</th>	
+									  <th data-priority="10">Species</th>
+									  <th data-priority="11">Vehicles</th>
+									  <th data-priority="12">Starships</th>
+									  <th data-priority="13">Created</th>
+									  <th data-priority="14">Edited</th>
+									  <th data-priority="15">URL</th>
+
+									</tr>
+								  </thead>
+								  <tbody id="mytab">
+								  </tbody>
+						</table>
+				</div>
+		</div>
+					<!-- <div data-role="collapsible" data-expanded-icon="arrow-d" data-collapsed-icon="arrow-u" data-collapsed="true">
+						<h2>About The Author</h2>
+						<div data-role="footer">
+								<h3>Name : Inderjit Singh</h3>
+								<h3>Age : 21</h3>
+								<h3>Gender : Male</h3>
+								<h3>Student ID : 991416996</h3>
+								<h3>Program : Computer Systems Technician</h3>
+						</div>
+					</div> -->
+					<!-- <div data-role="footer">
+							<a href="#chart" data-transition="pop" class="ui-btn ui-corner-all ui-btn-left ui-btn-inline ui-shadow-icon ui-icon-home">Home</a>
+							<a href="#chart" data-transition="pop" class="ui-btn ui-corner-all ui-btn-left ui-btn-inline ui-shadow-icon ui-icon-location">Google Maps</a>
+							<a href="#chart" data-transition="pop" class="ui-btn ui-corner-all ui-btn-left ui-btn-inline ui-shadow-icon ui-icon-bar-chart-o">Chart</a>
+					</div> -->
+				
+		
+		<div data-role="page" id="chart" data-theme="c">
+					<div data-role="header">
+							<h1>Bar chart comparing data for height and mass of different characters</h1>
+							<a href="#about" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left">About</a>
+					</div>
+					<div data-role="main" class="ui-content">
+						<canvas id="myCanvas" width="90%" height="25%" style="border:1px solid #000000;">
+						</canvas>
+					</div>
+					
+					<div data-role="footer">
+							<a href="#p1" data-transition="pop" class="ui-btn ui-corner-all ui-btn-left ui-shadow-icon ui-icon-arrow-l">Home</a>
+							<a href="#chart" data-transition="pop" class="ui-btn ui-corner-all ui-btn-right ui-shadow-icon ui-icon-arrow-r">Chart</a>
+					</div>
+		</div>
+		<div data-role="page" id="map" data-theme="c">
+					<div data-role="header">
+							<center>
+								<div data-role="navbar">
+									<a href="#p1" data-transition="pop" class="ui-btn ui-shadow-icon ui-icon-home ui-btn-icon-left ui-corner-all">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<a href="#p2" data-transition="pop" class="ui-btn ui-shadow-icon ui-icon-info ui-btn-icon-left  ui-corner-all">Data Info</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<a href="#map" data-transition="pop" class="ui-btn ui-shadow-icon ui-icon-location ui-btn-icon-left  ui-corner-all">Google Maps</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<a href="#chart" data-transition="pop" class="fa fa-bar-chart" class="ui-btn ui-corner-all" text-align="center">Chart</a>
+								</div>
+							</center>
+							<h1>Map showing position of different characeters relative to your position</h1>
+							<a href="#about" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left">About</a>
+					</div>
+					<div data-role="main" class="ui-content">
+						<div id="map_canvas" style="height:700px; width:1400px;">
+						</div>
+					</div>
+					<div data-role="footer">
+							<a href="#p1" data-transition="pop" class="ui-btn ui-corner-all ui-btn-left ui-shadow-icon ui-icon-arrow-l">Home</a>
+							<a href="#chart" data-transition="pop" class="ui-btn ui-corner-all ui-btn-right ui-shadow-icon ui-icon-arrow-r">Chart</a>
+					</div>
+		</div>	
+		
+	</body>
+	<script>
+		$(document).on("pagecreate", "#p1", function() { 
+			$.getJSON("pe5.json", function (data) {
+			var pair="";
+					for (len=0; len < data.people.length; len++) {
+						pair+="<tr>";
+							pair+="<td>"+data.people[len].name+"</td>";
+							pair+="<td>"+data.people[len].height+"</td>";
+							pair+="<td>"+data.people[len].mass+"</td>";
+							pair+="<td>"+data.people[len].hair_color+"</td>";
+							pair+="<td>"+data.people[len].skin_color+"</td>";
+							pair+="<td>"+data.people[len].eye_color+"</td>";
+							pair+="<td>"+data.people[len].birth_year+"</td>";
+							pair+="<td>"+data.people[len].gender+"</td>";
+							pair+="<td><a href='"+data.people[len].homeworld+"'>"+data.people[len].name+ "&#39;s Homeworld </a></td>";
+							pair+="<td>";
+								if(data.people[len].films.length>0){
+										for (abc=0; abc < data.people[len].films.length; abc++) {
+											pair+="<a href='"+data.people[len].films[abc]+"'>"+data.people[len].name+ "&#39;s Film "+(abc+1)+" </a><br>";
+										}
+								}
+							pair+="</td>";
+							pair+="<td>";
+								if(data.people[len].species.length>0){
+										for (abc=0; abc < data.people[len].species.length; abc++) {
+											pair+="<a href='"+data.people[len].species[abc]+"'>"+data.people[len].name+ "&#39;s Species "+(abc+1)+" </a><br>";
+										}
+								}
+							pair+="</td>";
+							pair+="<td>";
+								if(data.people[len].vehicles.length>0){
+										for (abc=0; abc < data.people[len].vehicles.length; abc++) {
+											pair+="<a href='"+data.people[len].vehicles[abc]+"'>"+data.people[len].name+ "&#39;s Vehicle "+(abc+1)+" </a><br>";
+										}
+								}
+							pair+="</td>";
+							pair+="<td>";
+								if(data.people[len].starships.length>0){
+										for (abc=0; abc < data.people[len].starships.length; abc++) {
+											pair+="<a href='"+data.people[len].starships[abc]+"'>"+data.people[len].name+ "&#39;s Starship "+(abc+1)+" </a><br>";
+										}
+								}
+							pair+="</td>";
+							pair+="<td>"+data.people[len].created+"</td>";
+							pair+="<td>"+data.people[len].edited+"</td>";
+							pair+="<td><a href='"+data.people[len].url+"'>"+data.people[len].name+ "&#39;s URL </a></td>";
+						pair+="</tr>";		
+				} 
+				$("#mytab").html(pair);
+			});
+		});
+	</script>   
+	<script>
+		
+		$(document).on("pagebeforecreate","#chart",function(){
+		
+		var heights = [] , masses =[],lbls=[];
+		$.ajax({
+		   type:"GET",
+		   url:"pe5.json",
+		   datatype:"json",
+		   success: myStarwars
+		   }
+		   );
+		function myStarwars(output) {
+			output["people"].forEach(function(packet) {
+			lbls.push(packet.name);
+			if(packet.height!='unknown')
+				heights.push(packet.height);
+			else
+				heights.push(Math.floor((Math.random() * 50) + 50));
+			if(packet.mass!='unknown')
+				masses.push(packet.mass);
+			else
+				masses.push((Math.random() * 50) + 50);
+			});
+			};
+			
+			var tempData = {
+			labels : lbls,
+			datasets : [{
+				label:"Mass",
+				fill: false,
+				lineTension: 0.1,
+				backgroundColor: "rgba(0, 51, 204,0.4)",
+				borderColor: "rgba(75,192,192,1)",
+				borderCapStyle: 'butt',
+				borderDash: [],
+				borderDashOffset: 0.0,
+				borderJoinStyle: 'miter',
+				pointBorderColor: "rgba(75,192,192,1)",
+				pointBackgroundColor: "#fff",
+				pointBorderWidth: 1,
+				pointHoverRadius: 5,
+				pointHoverBackgroundColor: "rgba(75,192,192,1)",
+				pointHoverBorderColor: "rgba(220,220,220,1)",
+				pointHoverBorderWidth: 2,
+				pointRadius: 1,
+				pointHitRadius: 10,
+				data                  :  masses
+			},
+			{
+				label:"Height",
+				fill: false,
+				lineTension: 0.1,
+				backgroundColor: "rgba(255, 0, 255,0.4)",
+				borderColor: "rgba(75,192,192,1)",
+				borderCapStyle: 'butt',
+				borderDash: [],
+				borderDashOffset: 0.0,
+				borderJoinStyle: 'miter',
+				pointBorderColor: "rgba(75,192,192,1)",
+				pointBackgroundColor: "#fff",
+				pointBorderWidth: 1,
+				pointHoverRadius: 5,
+				pointHoverBackgroundColor: "rgba(75,192,192,1)",
+				pointHoverBorderColor: "rgba(220,220,220,1)",
+				pointHoverBorderWidth: 2,
+				pointRadius: 1,
+				pointHitRadius: 10,
+				data :  heights
+			}]
+		};
+		
+		var btx = document.getElementById("myCanvas").getContext("2d");
+		var myBarChart = new Chart(btx, {
+		type: 'bar',
+		data: tempData
+		});
+		});
+		
+	</script>
+	<script>
+
+		$(document).on("pagecreate", "#map", function() {	
+			var mapc = new google.maps.LatLng(38,35);
+			var mapOpt = {
+			center:mapc,
+			zoom: 2,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			
+			var mymap = new google.maps.Map(document.getElementById("map_canvas"), mapOpt);
+				var latitudes = [] , longitudes =[], lbls=[],holder=[] ;
+				//var infowindow = null;
+				var coordinates;
+				$.ajax({
+				   type:"GET",
+				   url:"pe5.json",
+				   datatype:"json",
+				   success: myStarwars
+				   }
+				   );
+				function myStarwars(output) {
+				
+					var i=0;
+					output["people"].forEach(function(packet) {
+					lbls.push(packet.name+"&#39;s location");
+					if(packet.height!='unknown')
+						longitudes.push((packet.height*2)%180);
+					else
+						longitudes.push((Math.floor((Math.random() * 180) + 50))%180);
+					if(packet.mass!='unknown')
+						latitudes.push((packet.mass*2)%90);
+					else
+						latitudes.push((Math.floor((Math.random() * 90) + 50))%90);
+						
+						
+					coordinates = new google.maps.LatLng(latitudes[i], longitudes[i]);
+					holder[i]=new google.maps.Marker({
+						position: coordinates,
+						map: mymap,
+						animation:google.maps.Animation.DROP
+					});
+					//var info = new google.maps.InfoWindow({
+					//content: "sher"
+					//});
+					//google.maps.event.addListener(holder, "click", function(){
+					//info.open(mymap, holder);
+				//});
+				var label=lbls[i];
+				var infowindow = new google.maps.InfoWindow({
+				
+				content: label
+				});
+				var marker = holder[i];
+							google.maps.event.addListener(marker, 'click', function () {
+							// where I have added .html to the marker object.
+							
+							infowindow.open(map, this);
+							});
+
+					i++;
+					});
+					
+					//infowindow = new google.maps.InfoWindow({
+				//content: "holding..."
+				//});
+					
+					
+					
+					
+					
+					};
+			
+			});
+		
+			
+
+	</script>
+			
+		
+	
+	
+</html>

@@ -1,0 +1,19 @@
+tr:nth-child(even) {background: #ffccff;}
+tr:nth-child(odd) {background: #ffffe6;}
+.abc{
+	font-size:24px;
+	color:#660033;
+}
+
+.ui-content{
+	
+	font-color: "red";
+	
+}
+
+h2 {
+
+	
+}
+
+
