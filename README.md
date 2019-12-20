@@ -5,4 +5,4 @@ Used JQuery & ajax to parse data from Swapi json. Google maps api to plot fictio
 
 # Instruction on how to run
 Download files and place the files in any HTTP Server 
-![Alt text](FinalProject/images/showcase.PNG)
+![Alt text](FinalProject/finalProject/images/showcase.PNG)
